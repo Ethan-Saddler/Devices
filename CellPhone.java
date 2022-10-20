@@ -21,7 +21,7 @@ public class CellPhone extends Device {
         }
     }
     public boolean addTask(Task task) {
-        if (canAddTask(task) == true) {
+        if (this.canAddTask(task) == true) {
             for (int n = 0; n < tasks.length; n++) {
                 if (tasks[n] == null) {
                     tasks[n] = task;
@@ -32,8 +32,9 @@ public class CellPhone extends Device {
         } 
         return false;
     }
-    public boolean equals(CellPhone phone) {
-        if (super.equals(phone) && tasksCompleted == phone.tasksCompleted) {
+    public boolean equals(Object phone) {
+        phone = (CellPhone) phone;
+        if (super.equals(phone) && this.tasksCompleted == phone.tasksCompleted) {
             return true;
         } else {
             return false;

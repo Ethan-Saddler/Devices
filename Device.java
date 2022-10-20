@@ -35,15 +35,16 @@ public abstract class Device {
         }
         return false;
     }
-    public boolean equals(Device device) {
-        if (serialNumber == device.serialNumber && cpuCapacity == device.cpuCapacity && cpuRemaining == device.cpuRemaining) {
+    public boolean equals(Object device) {
+        device = (Device) device;
+        if (this.serialNumber == device.serialNumber && this.cpuCapacity == device.cpuCapacity && this.cpuRemaining == device.cpuRemaining) {
             return true;
         } else {
             return false;
         }
     }
     public String toString() {
-        return String.format("Device with serial number %d has %d of %d CPU remaining", serialNumber, cpuRemaining, cpuCapacity);
+        return String.format("Device with serial number %d has %d of %d CPU remaining.", serialNumber, cpuRemaining, cpuCapacity);
     }
 
 }
